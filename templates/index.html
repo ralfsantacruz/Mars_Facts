@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mars Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<style>
+    .backgroundimg {
+        background-image: url("{{mars_facts['featured_image']}}");
+    }
+</style>
+
+<body class="backgroundimg">
+    
+    <div class="jumbotron text-center bg-transparent">
+            <h1>Mars Data</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">randomize the page!</a></p>
+            </div>
+    
+    <div class = "row">
+        <div class="col-md-4  offset-md-1 bg-light" style="width:90%">
+            <p>{{mars_facts['headlines']['title']}}</p>
+            <p>{{mars_facts['headlines']['description']}}</p>
+        </div>
+        <div class="col-md-2"></div>
+
+        <div class="col-md-4 bg-light" style="width:90%">
+            <h3>Mars Weather and General Tweets</h3>
+            <p>{{mars_facts['tweets']}}</p>
+        </div>
+    </div>
+    
+
+    <table>{{mars_facts['mars_table']}}
+
+
+    <!-- Scripts used for functionality -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>      
+        </body>
+</html>
+
+
