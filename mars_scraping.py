@@ -1,9 +1,3 @@
-
-# coding: utf-8
-
-# In[1]:
-
-
 from bs4 import BeautifulSoup as bs
 from splinter import Browser
 from pprint import pprint
@@ -13,21 +7,16 @@ import re
 import pandas as pd
 
 
-# In[2]:
-
-
 executable_path = {'executable_path': 'chromedriver.exe'}
 browser = Browser('chrome', **executable_path, headless=False)
-
-
-# In[3]:
-
 
 def get_soup(url):
     """ 
     This function uses splinter and beautiful soup to serve you up a BeautifulSoup object to scrape from.
         Just hit it with your url of interest and you're all set.
+        
     """
+
     browser.visit(url)
     html = browser.html
     soup = bs(html, 'html.parser')
@@ -50,8 +39,12 @@ def text(x):
 def random_element(x):
     """
     Takes in a list and returns a random element from the list.
+    If there's only one element, return first element.
     """
-    return x[r.randint(0,len(x)-1)]
+    if len(x) > 1:
+        return x[r.randint(0,len(x)-1)]
+    else:
+        return x[0]
 
 
 # In[6]:
@@ -116,7 +109,7 @@ def mars_html_table():
     mars_facts.columns=['Mars Profile','']
     mars_facts = mars_facts.set_index('Mars Profile')
     # Export the table to HTML
-    mars_table = mars_facts.to_html()
+    mars_table = mars_facts.to_html(escape=False)
     return mars_table
 
 
